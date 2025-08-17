@@ -1,6 +1,6 @@
 import {sql} from '../config/db.js';
 
-export async function getTransactionsByUserId(){
+export async function getTransactionsByUserId(req, res){
         try{
             const {userId}=req.params;
            
@@ -18,7 +18,7 @@ export async function getTransactionsByUserId(){
     
 }
 
-export async function deleteTransactionById(){
+export async function deleteTransactionById(req, res){
     
         try{
             const {id} = req.params;
