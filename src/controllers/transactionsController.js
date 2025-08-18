@@ -40,6 +40,8 @@ export async function createTransaction(req, res) {
     try{
         const {user_id, title, amount, category} = req.body;
         
+        console.log("Received request body:", req.body); // Debug log
+        
         if(!user_id || !title || !amount || !category) {
             return res.status(400).json({ error: "All fields (user_id, title, amount, category) are required" });
         }
