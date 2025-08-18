@@ -38,15 +38,15 @@ export async function deleteTransactionById(req, res){
 
 export async function createTransaction(req, res) {
     try{
-        const {user_id, title, amount, category} = req.body;
+        const {user_id, title, amount, catagory} = req.body;
         
-        if(!user_id || !title || !amount || !category) {
-            return res.status(400).json({ error: "All fields (user_id, title, amount, category) are required" });
+        if(!user_id || !title || !amount || !catagory) {
+            return res.status(400).json({ error: "All fields (user_id, title, amount, catagory) are required" });
         }
         
         const result = await sql`
-            INSERT INTO transactions (user_id, title, amount, category)
-            VALUES (${user_id}, ${title}, ${amount}, ${category})
+            INSERT INTO transactions (user_id, title, amount, catagory)
+            VALUES (${user_id}, ${title}, ${amount}, ${catagory})
             RETURNING *`;
             
         console.log("Transaction created successfully");
